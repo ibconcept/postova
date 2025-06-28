@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Postova – Fast AI-Powered Poster Maker & Graphic Design App</title>
+    <meta name="description" content="Turn news, announcements, or any text into stunning, AI-generated posters instantly. Postova is a fast, lightweight, and versatile mini graphic design app for quick visual updates.">
+    <meta name="keywords" content="poster maker, AI poster generator, news poster, fast graphic design, mini Canva, web app, AI background, camera API, share API, William Maina, mainadev">
+    <meta name="author" content="William Maina (mainadev)">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://your-postova-app-url.com/">
+
+    <!-- Google Fonts: Roboto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif; /* Changed font to Roboto */
+            /* Updated to a pastel rainbow gradient */
+            background-image: linear-gradient(to right top, #FFC0CB, #FFDAB9, #FFFFE0, #E0FFFF, #ADD8E6, #DDA0DD, #EE82EE);
+            background-attachment: fixed; /* Ensures gradient covers full height */
+            color: #333; /* Changed text color to dark gray */
+        }
+        /* Custom glass effect for sections, header, and footer */
+        .glass-effect {
+            background-color: rgba(255, 255, 255, 0.15); /* Slightly transparent white */
+            backdrop-filter: blur(10px); /* Blur effect */
+            border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle white border */
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Soft shadow */
+        }
+        /* Style for Font Awesome Icons */
+        @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+
+        /* On scroll reveal animation */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-up.appear {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Ensure dark text on navigation links and header text */
+        header .text-white {
+            color: #333; /* Darker text for header for consistency */
+        }
+        header nav a {
+            color: #333; /* Darker text for nav links */
+        }
+        header nav a:hover {
+            color: #6a0dad; /* Hover color for nav links */
+        }
+    </style>
+
+    <!-- JSON-LD for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Postova",
+      "url": "https://your-postova-app-url.com/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://your-postova-app-url.com/?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Postova",
+      "operatingSystem": "Web",
+      "applicationCategory": "DesignApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "ratingCount": "85"
+      },
+      "description": "The fastest way to turn news, celeb updates, or announcements into stunning, AI-generated posters. No design skills needed.",
+      "url": "https://your-postova-app-url.com/",
+      "downloadUrl": "https://your-postova-app-url.com/app",
+      "author": {
+        "@type": "Person",
+        "name": "William Maina",
+        "url": "https://mainadev.com"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Postova Team",
+      "url": "https://your-postova-app-url.com/",
+      "logo": "https://placehold.co/120x60/000000/FFFFFF?text=POSTOVA%20LOGO",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+254-729-301689",
+        "contactType": "customer service"
+      },
+      "sameAs": [
+        "https://twitter.com/mainadev",
+        "https://github.com/mainadev"
+      ]
+    }
+    </script>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="glass-effect shadow-lg py-4 px-6 md:px-12 flex justify-between items-center fixed w-full z-50 rounded-b-xl">
+        <div class="text-3xl font-bold text-[#333] tracking-wider"> <!-- Changed text color -->
+            Postova
+        </div>
+        <nav class="hidden md:flex space-x-6">
+            <a href="#home" class="text-[#333] hover:text-purple-700 transition duration-300 ease-in-out px-3 py-2 rounded-lg">Home</a>
+            <a href="#features" class="text-[#333] hover:text-purple-700 transition duration-300 ease-in-out px-3 py-2 rounded-lg">Features</a>
+            <a href="#how-to-use" class="text-[#333] hover:text-purple-700 transition duration-300 ease-in-out px-3 py-2 rounded-lg">How It Works</a>
+            <a href="#testimonials" class="text-[#333] hover:text-purple-700 transition duration-300 ease-in-out px-3 py-2 rounded-lg">Testimonials</a>
+            <a href="#about" class="text-[#333] hover:text-purple-700 transition duration-300 ease-in-out px-3 py-2 rounded-lg">About Us</a>
+            <a href="#demo" class="text-[#333] hover:text-purple-700 transition duration-300 ease-in-out px-3 py-2 rounded-lg">Demo</a>
+        </nav>
+        <!-- Mobile Menu Button (Hamburger) -->
+        <button class="md:hidden text-[#333] text-2xl focus:outline-none">
+            <i class="fas fa-bars"></i>
+        </button>
+    </header>
+
+    <main class="pt-20">
+        <!-- Hero Section -->
+        <section id="home" class="relative h-screen flex flex-col justify-center items-center text-center p-4">
+            <div class="glass-effect p-8 md:p-16 rounded-3xl max-w-4xl mx-auto shadow-2xl border border-purple-500 fade-in-up">
+                <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6 animate-pulse text-[#333]"> <!-- Changed text color -->
+                    Transform Ideas into Stunning Posters, Instantly.
+                </h1>
+                <p class="text-lg md:text-xl mb-8 opacity-90 text-[#333]"> <!-- Changed text color -->
+                    The fastest way to turn news, announcements, or any text into beautiful, AI-powered visuals. No design skills needed.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="https://your-postova-app-url.com/app" target="_blank" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-8 rounded-full transition duration-300 ease-in-out transform hover:scale-105 shadow-lg">
+                        Create Your Poster Now! <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                    <a href="#features" class="bg-gray-700 hover:bg-gray-800 text-white font-bold py-3 px-8 rounded-full transition duration-300 ease-in-out transform hover:scale-105 shadow-lg">
+                        Learn More <i class="fas fa-info-circle ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="py-16 px-4 md:px-12">
+            <div class="glass-effect p-8 md:p-16 rounded-3xl max-w-6xl mx-auto shadow-2xl border border-purple-500">
+                <h2 class="text-4xl font-bold text-center mb-12 fade-in-up text-[#333]">Packed with Powerful Features</h2> <!-- Changed text color -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Feature Card 1 -->
+                    <div class="glass-effect p-6 rounded-2xl shadow-xl transform transition duration-300 hover:scale-105 fade-in-up">
+                        <i class="fas fa-magic text-purple-600 text-4xl mb-4"></i> <!-- Adjusted icon color for better contrast -->
+                        <h3 class="text-2xl font-semibold mb-3 text-[#333]">AI-Assisted Design</h3> <!-- Changed text color -->
+                        <p class="text-gray-700">Let AI suggest layouts, fonts, and color palettes. Get stunning results without any design expertise.</p> <!-- Changed text color -->
+                    </div>
+                    <!-- Feature Card 2 -->
+                    <div class="glass-effect p-6 rounded-2xl shadow-xl transform transition duration-300 hover:scale-105 fade-in-up">
+                        <i class="fas fa-text-width text-green-600 text-4xl mb-4"></i> <!-- Adjusted icon color -->
+                        <h3 class="text-2xl font-semibold mb-3 text-[#333]">Versatile Content Input</h3> <!-- Changed text color -->
+                        <p class="text-gray-700">Input text & upload an image, or simply paste an article URL for AI-powered text & image extraction.</p> <!-- Changed text color -->
+                    </div>
+                    <!-- Feature Card 3 -->
+                    <div class="glass-effect p-6 rounded-2xl shadow-xl transform transition duration-300 hover:scale-105 fade-in-up">
+                        <i class="fas fa-camera text-blue-600 text-4xl mb-4"></i> <!-- Adjusted icon color -->
+                        <h3 class="text-2xl font-semibold mb-3 text-[#333]">Capture & Create on the Go</h3> <!-- Changed text color -->
+                        <p class="text-gray-700">Use your camera (Camera API) to snap a photo and add text directly. Or generate images with AI instantly.</p> <!-- Changed text color -->
+                    </div>
+                    <!-- Feature Card 4 -->
+                    <div class="glass-effect p-6 rounded-2xl shadow-xl transform transition duration-300 hover:scale-105 fade-in-up">
+                        <i class="fas fa-share-alt text-red-600 text-4xl mb-4"></i> <!-- Adjusted icon color -->
+                        <h3 class="text-2xl font-semibold mb-3 text-[#333]">Instant Sharing</h3> <!-- Changed text color -->
+                        <p class="text-gray-700">Share your created posters directly to social media or messaging apps using the Share API.</p> <!-- Changed text color -->
+                    </div>
+                    <!-- Feature Card 5 -->
+                    <div class="glass-effect p-6 rounded-2xl shadow-xl transform transition duration-300 hover:scale-105 fade-in-up">
+                        <i class="fas fa-palette text-yellow-600 text-4xl mb-4"></i> <!-- Adjusted icon color -->
+                        <h3 class="text-2xl font-semibold mb-3 text-[#333]">Full Customization</h3> <!-- Changed text color -->
+                        <p class="text-gray-700">Select background colors, fonts, layouts, and alignments with intuitive dropdowns.</p> <!-- Changed text color -->
+                    </div>
+                    <!-- Feature Card 6 -->
+                    <div class="glass-effect p-6 rounded-2xl shadow-xl transform transition duration-300 hover:scale-105 fade-in-up">
+                        <i class="fas fa-bolt text-purple-600 text-4xl mb-4"></i> <!-- Adjusted icon color -->
+                        <h3 class="text-2xl font-semibold mb-3 text-[#333]">Blazing Fast & Lightweight</h3> <!-- Changed text color -->
+                        <p class="text-gray-700">Optimized for speed, Postova works seamlessly even on low-end devices with minimal load times.</p> <!-- Changed text color -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section id="how-to-use" class="py-16 px-4 md:px-12">
+            <div class="glass-effect p-8 md:p-16 rounded-3xl max-w-6xl mx-auto shadow-2xl border border-purple-500">
+                <h2 class="text-4xl font-bold text-center mb-12 fade-in-up text-[#333]">How Postova Works: Create in 3 Simple Steps</h2> <!-- Changed text color -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <!-- Step 1 -->
+                    <div class="glass-effect p-6 rounded-2xl shadow-xl fade-in-up">
+                        <div class="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center text-3xl font-bold mx-auto mb-4 text-white">1</div>
+                        <h3 class="text-2xl font-semibold mb-3 text-[#333]">Add Your Content</h3> <!-- Changed text color -->
+                        <p class="text-gray-700">Type or paste your text. Upload an image, fetch from an article URL, capture with your camera, or generate one with AI.</p> <!-- Changed text color -->
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="glass-effect p-6 rounded-2xl shadow-xl fade-in-up">
+                        <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-3xl font-bold mx-auto mb-4 text-white">2</div>
+                        <h3 class="text-2xl font-semibold mb-3 text-[#333]">Customize & AI-Enhance</h3> <!-- Changed text color -->
+                        <p class="text-gray-700">Choose background, font, layout, and alignment. Let AI auto-suggest designs or generate new backgrounds.</p> <!-- Changed text color -->
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="glass-effect p-6 rounded-2xl shadow-xl fade-in-up">
+                        <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center text-3xl font-bold mx-auto mb-4 text-white">3</div>
+                        <h3 class="text-2xl font-semibold mb-3 text-[#333]">Export & Share</h3> <!-- Changed text color -->
+                        <p class="text-gray-700">Download your stunning poster as PNG/JPEG, or share directly to your favorite social platforms.</p> <!-- Changed text color -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Postova Is Important Section -->
+        <section id="importance" class="py-16 px-4 md:px-12">
+            <div class="glass-effect p-8 md:p-16 rounded-3xl max-w-6xl mx-auto shadow-2xl border border-purple-500">
+                <h2 class="text-4xl font-bold text-center mb-12 fade-in-up text-[#333]">Why Postova is Your Go-To Tool</h2> <!-- Changed text color -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="fade-in-up">
+                        <ul class="space-y-4 text-lg text-gray-700"> <!-- Changed text color -->
+                            <li><i class="fas fa-check-circle text-green-600 mr-3"></i>**Speed & Efficiency:** Create eye-catching visuals in minutes, not hours.</li> <!-- Adjusted icon color -->
+                            <li><i class="fas fa-check-circle text-green-600 mr-3"></i>**No Design Skills Needed:** Our AI does the heavy lifting, making professional design accessible to everyone.</li> <!-- Adjusted icon color -->
+                            <li><i class="fas fa-check-circle text-green-600 mr-3"></i>**Cost-Effective:** Achieve high-quality graphics without expensive software or designers.</li> <!-- Adjusted icon color -->
+                            <li><i class="fas fa-check-circle text-green-600 mr-3"></i>**Instant Impact:** Quickly grab attention for your news, updates, or promotions.</li> <!-- Adjusted icon color -->
+                            <li><i class="fas fa-check-circle text-green-600 mr-3"></i>**Mobile-First Approach:** Design on the go, directly from your phone's camera and share instantly.</li> <!-- Adjusted icon color -->
+                        </ul>
+                    </div>
+                    <div class="fade-in-up">
+                        <!-- Unsplash image of a girl with a phone -->
+                        <img src="https://images.unsplash.com/photo-1549247659-4d6d6a5e1f0e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                             alt="Girl using a phone with Postova app interface" 
+                             class="rounded-2xl shadow-xl w-full h-auto object-cover object-center"
+                             onerror="this.onerror=null;this.src='https://placehold.co/600x400/8A2BE2/FFFFFF?text=WHY+POSTOVA+MATTERS';">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Who Can Use It Section -->
+        <section id="who-can-use" class="py-16 px-4 md:px-12">
+            <div class="glass-effect p-8 md:p-16 rounded-3xl max-w-6xl mx-auto shadow-2xl border border-purple-500">
+                <h2 class="text-4xl font-bold text-center mb-12 fade-in-up text-[#333]">Who Benefits from Postova?</h2> <!-- Changed text color -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+                    <div class="glass-effect p-6 rounded-2xl shadow-xl fade-in-up">
+                        <i class="fas fa-bullhorn text-orange-600 text-4xl mb-4"></i> <!-- Adjusted icon color -->
+                        <h3 class="text-xl font-semibold mb-2 text-[#333]">Media Teams & Journalists</h3> <!-- Changed text color -->
+                        <p class="text-gray-700 text-sm">Quickly turn breaking news into shareable visuals.</p> <!-- Changed text color -->
+                    </div>
+                    <div class="glass-effect p-6 rounded-2xl shadow-xl fade-in-up">
+                        <i class="fas fa-user-friends text-pink-600 text-4xl mb-4"></i> <!-- Adjusted icon color -->
+                        <h3 class="text-xl font-semibold mb-2 text-[#333]">Social Media Influencers</h3> <!-- Changed text color -->
+                        <p class="text-gray-700 text-sm">Create engaging posts that stand out instantly.</p> <!-- Changed text color -->
+                    </div>
+                    <div class="glass-effect p-6 rounded-2xl shadow-xl fade-in-up">
+                        <i class="fas fa-store text-yellow-600 text-4xl mb-4"></i> <!-- Adjusted icon color -->
+                        <h3 class="text-xl font-semibold mb-2 text-[#333]">Small Businesses & Marketers</h3> <!-- Changed text color -->
+                        <p class="text-gray-700 text-sm">Design promotional content and announcements with ease.</p> <!-- Changed text color -->
+                    </div>
+                    <div class="glass-effect p-6 rounded-2xl shadow-xl fade-in-up">
+                        <i class="fas fa-hand-holding-heart text-red-600 text-4xl mb-4"></i> <!-- Adjusted icon color -->
+                        <h3 class="text-xl font-semibold mb-2 text-[#333]">Non-Profits & Activists</h3> <!-- Changed text color -->
+                        <p class="text-gray-700 text-sm">Spread awareness and messages effectively and quickly.</p> <!-- Changed text color -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="py-16 px-4 md:px-12">
+            <div class="glass-effect p-8 md:p-16 rounded-3xl max-w-6xl mx-auto shadow-2xl border border-purple-500">
+                <h2 class="text-4xl font-bold text-center mb-12 fade-in-up text-[#333]">What Our Users Say</h2> <!-- Changed text color -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Testimonial 1 -->
+                    <div class="glass-effect p-6 rounded-2xl shadow-xl flex flex-col items-center text-center fade-in-up">
+                        <img src="https://placehold.co/80x80/6A0DAD/FFFFFF?text=User1" alt="User Avatar" class="w-20 h-20 rounded-full mb-4 border-2 border-purple-400">
+                        <p class="text-lg italic mb-4 text-[#333]">"Postova changed the game for our daily news updates. What used to take an hour now takes minutes. The AI suggestions are brilliant!"</p> <!-- Changed text color -->
+                        <p class="font-semibold text-purple-700">- Jane Doe, News Editor</p> <!-- Adjusted text color -->
+                        <div class="text-yellow-600 mt-2"> <!-- Adjusted icon color -->
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <!-- Testimonial 2 -->
+                    <div class="glass-effect p-6 rounded-2xl shadow-xl flex flex-col items-center text-center fade-in-up">
+                        <img src="https://placehold.co/80x80/007FFF/FFFFFF?text=User2" alt="User Avatar" class="w-20 h-20 rounded-full mb-4 border-2 border-blue-400">
+                        <p class="text-lg italic mb-4 text-[#333]">"I'm not a designer, but Postova makes me feel like one! Creating social media graphics has never been this easy and fun. Highly recommend!"</p> <!-- Changed text color -->
+                        <p class="font-semibold text-blue-700">- Mark Smith, Content Creator</p> <!-- Adjusted text color -->
+                        <div class="text-yellow-600 mt-2"> <!-- Adjusted icon color -->
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Demo Section -->
+        <section id="demo" class="py-16 px-4 md:px-12">
+            <div class="glass-effect p-8 md:p-16 rounded-3xl max-w-6xl mx-auto shadow-2xl border border-purple-500">
+                <h2 class="text-4xl font-bold text-center mb-12 fade-in-up text-[#333]">See Postova in Action!</h2> <!-- Changed text color -->
+                <div class="flex justify-center items-center flex-col">
+                    <!-- Unsplash image for demo -->
+                    <img src="https://images.unsplash.com/photo-1517036666986-a2491b4ae8a8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                         alt="Postova App Interface Demo" 
+                         class="rounded-2xl shadow-xl w-full max-w-3xl h-auto object-cover object-center fade-in-up"
+                         onerror="this.onerror=null;this.src='https://placehold.co/800x450/333333/FFFFFF?text=POSTOVA+APP+DEMO+PREVIEW';">
+                    <p class="text-lg text-gray-700 mb-6 text-center fade-in-up">A glimpse of how quickly you can create stunning visuals. Imagine the possibilities!</p> <!-- Changed text color -->
+                    <a href="https://your-postova-app-url.com/app" target="_blank" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full transition duration-300 ease-in-out transform hover:scale-105 shadow-lg fade-in-up">
+                        Try Postova Live! <i class="fas fa-rocket ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about" class="py-16 px-4 md:px-12">
+            <div class="glass-effect p-8 md:p-16 rounded-3xl max-w-6xl mx-auto shadow-2xl border border-purple-500">
+                <h2 class="text-4xl font-bold text-center mb-12 fade-in-up text-[#333]">About The Team Behind Postova</h2> <!-- Changed text color -->
+                <div class="flex flex-col md:flex-row items-center justify-center gap-8 text-center md:text-left">
+                    <img src="https://placehold.co/150x150/5B21B6/FFFFFF?text=WM" alt="William Maina Avatar" class="w-40 h-40 rounded-full mb-4 md:mb-0 border-4 border-purple-400 shadow-lg fade-in-up">
+                    <div class="fade-in-up">
+                        <h3 class="text-3xl font-semibold mb-2 text-[#333]">William Maina (mainadev)</h3> <!-- Changed text color -->
+                        <p class="text-lg text-gray-700 mb-2">Founder & Lead Developer</p> <!-- Changed text color -->
+                        <p class="text-md text-gray-700 mb-4"> <!-- Changed text color -->
+                            An ALX graduate from Nairobi, Kenya, passionate about building innovative web solutions. William brings expertise in fast, user-centric applications and a vision for making design accessible to everyone.
+                        </p>
+                        <p class="text-md text-gray-700"> <!-- Changed text color -->
+                            **Contact:** +254 729 301 689
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="glass-effect py-8 px-6 md:px-12 text-center text-gray-700 rounded-t-xl mt-16"> <!-- Changed text color -->
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center">
+            <!-- Copyright & Brand -->
+            <p class="mb-4 md:mb-0">&copy; <span id="current-year"></span> Postova. All rights reserved.</p>
+            
+            <!-- Quick Links -->
+            <div class="flex flex-col md:flex-row md:space-x-6 space-y-2 md:space-y-0 text-left md:text-center mb-4 md:mb-0">
+                <a href="#" class="text-[#333] hover:text-purple-700 transition duration-300 ease-in-out">Contribute</a>
+                <a href="#" class="text-[#333] hover:text-purple-700 transition duration-300 ease-in-out">Privacy Policy</a>
+                <a href="#" class="text-[#333] hover:text-purple-700 transition duration-300 ease-in-out">Terms of Service</a>
+                <a href="#" class="text-[#333] hover:text-purple-700 transition duration-300 ease-in-out">FAQ</a>
+                <a href="#" class="text-[#333] hover:text-purple-700 transition duration-300 ease-in-out">Support</a>
+            </div>
+
+            <!-- Social Links -->
+            <div class="flex space-x-6 mt-4 md:mt-0">
+                <a href="#" class="text-[#333] hover:text-purple-700 transition duration-300 ease-in-out"><i class="fab fa-twitter text-xl"></i></a>
+                <a href="#" class="text-[#333] hover:text-purple-700 transition duration-300 ease-in-out"><i class="fab fa-linkedin-in text-xl"></i></a>
+                <a href="#" class="text-[#333] hover:text-purple-700 transition duration-300 ease-in-out"><i class="fab fa-github text-xl"></i></a>
+            </div>
+        </div>
+        <p class="text-sm mt-4 text-[#333]">Site designed and supported by <a href="https://ibconcept.vip" target="_blank" class="text-purple-700 hover:underline">ibconcept.vip</a></p>
+    </footer>
+
+    <script>
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // On scroll reveal animation logic
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('appear');
+                } else {
+                    entry.target.classList.remove('appear'); // Optional: remove class when out of view
+                }
+            });
+        }, {
+            threshold: 0.2 // Trigger when 20% of the item is visible
+        });
+
+        // Select all elements that should animate on scroll
+        document.querySelectorAll('.fade-in-up').forEach(element => {
+            observer.observe(element);
+        });
+
+        // Special handling for the header, since it's fixed and always visible
+        // You might want to animate it once on load instead of on scroll
+        document.querySelector('header').classList.add('appear');
+
+    </script>
+</body>
+</html>
